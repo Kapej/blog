@@ -1,4 +1,4 @@
-<h1>Editing post</h1>
+<h1>Edytuj post</h1>
 
 <%= form_for :post, url: post_path(@post), method: :patch do |f| %>
     <p>
@@ -12,8 +12,8 @@
     </p>
 
     <p>
-      <%= f.submit %>
+      <%= f.submit "Edytuj", class: "btn btn-success" %>
     </p>
 <% end %>
 
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Wróć', posts_path %>

@@ -2,13 +2,44 @@
 <html>
 <head>
   <title>Blog</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a><h1 class="navbar-brand">Kacper Trafiał</h1></a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-3 footer_space">
+      <%= yield %>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-3">
+        <h1>Copyright &copy; 2015</h1>
+      </div>
+    </div>
+  </div>
+</footer>
+
 
 </body>
 </html>

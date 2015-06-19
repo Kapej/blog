@@ -1,11 +1,40 @@
-<p>
-  <strong>Title:</strong>
+<p class="post_title">
+  <strong>Tytuł:</strong>
   <%= @post.title %>
 </p>
 
 <p>
-  <strong>Text:</strong>
+  <strong>Treść:</strong>
   <%= @post.text %>
 </p>
 
-<%= link_to 'Back', posts_path %>
+<h2 class="comment_title">Komentarze</h2>
+<% @post.comments.each do |comment| %>
+    <p>
+      <strong>Komentujący:</strong>
+      <%= comment.commenter %>
+    </p>
+
+    <p>
+      <strong>Komentarz:</strong>
+      <%= comment.body %>
+    </p>
+<% end %>
+
+<h2 class="comment_begin">Dodaj komentarz</h2>
+<%= form_for([@post, @post.comments.build]) do |f| %>
+    <p>
+      <%= f.label :Komentujący %><br />
+      <%= f.text_field :commenter %>
+    </p>
+    <p>
+      <%= f.label :Treść %><br />
+      <%= f.text_area :body %>
+    </p>
+    <p>
+      <%= f.submit "Utwórz komentarz", class: "btn btn-success" %>
+    </p>
+<% end %>
+
+<%= link_to 'Edytuj post', edit_post_path(@post) %>
+<%= link_to 'Wróc do wszystkich postów', posts_path %>
