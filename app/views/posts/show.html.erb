@@ -1,25 +1,28 @@
-<p class="post_title">
-  <strong>Tytuł:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Treść:</strong>
-  <%= @post.text %>
-</p>
-
-<h2 class="comment_title">Komentarze</h2>
-<% @post.comments.each do |comment| %>
+<div class="post_body">
+    <p class="post_title">
+      <%= @post.title %>
+    </p>
+    <hr>
     <p>
-      <strong>Komentujący:</strong>
-      <%= comment.commenter %>
+      <%= @post.text %>
     </p>
 
-    <p>
-      <strong>Komentarz:</strong>
-      <%= comment.body %>
-    </p>
-<% end %>
+</div>
+
+    <% if @post.comments.any? %>
+        <h2 class="comment_title">Komentarze</h2>
+        <% @post.comments.each do |comment| %>
+        <div class="comment_body">
+            <p>
+              <%= comment.commenter %>
+            </p>
+               <hr>
+            <p>
+              <%= comment.body %>
+            </p>
+        </div>
+        <% end %>
+    <% end %>
 
 <h2 class="comment_begin">Dodaj komentarz</h2>
 <%= form_for([@post, @post.comments.build]) do |f| %>
